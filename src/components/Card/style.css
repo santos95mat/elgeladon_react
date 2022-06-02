@@ -1,0 +1,35 @@
+div.card {
+  width: 150px;
+  height: 205px;
+  background-color: rgba(34, 162, 189, 0.3);
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+div.card:hover {
+  transform: scale(1.1);
+}
+
+div.card > img {
+  width: 140px;
+  border-radius: 10px;
+  margin-bottom: 5px;
+}
+
+div.card > h3 {
+  height: 55px;
+  font-size: 16px;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-top: 5px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
