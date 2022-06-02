@@ -15,8 +15,6 @@ const Home = (props) => {
     setUrl(list.info.next);
   };
 
-  console.log(characters);
-
   useEffect(() => {
     if (url !== null) {
       getCharacters();
