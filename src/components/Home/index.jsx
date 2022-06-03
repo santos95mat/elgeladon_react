@@ -1,7 +1,7 @@
 import Card from "../Card";
 import { useState, useEffect } from "react";
 import "./style.css";
-import search from "../../assets/images/search.png";
+import Search from "../Search";
 
 const Home = (props) => {
   const [characters, setCharacters] = useState([]);
@@ -25,12 +25,7 @@ const Home = (props) => {
   return (
     <div>
       <h2>Pesquisar Personagem por ID</h2>
-      <div className="search">
-        <input type="text" />
-        <button>
-          <img src={search} alt="search" />
-        </button>
-      </div>
+      <Search />
       <h2>Lista de Personagens</h2>
       <div className="cards">
         {characters.map((e) => {

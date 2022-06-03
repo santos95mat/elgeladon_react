@@ -4,46 +4,6 @@ h2 {
   margin-bottom: 1rem;
 }
 
-div.search {
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  align-items: center;
-}
-
-div.search > input {
-  width: 250px;
-  height: 15px;
-  padding: 5px;
-  outline: none;
-  border: none;
-  border-top-left-radius: 6px;
-  border-bottom-left-radius: 6px;
-  background-color: rgba(34, 162, 189, 0.2);
-}
-
-div.search > button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-  padding: 5px;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  border-bottom-right-radius: 6px;
-  border-top-right-radius: 6px;
-  background-color: rgba(34, 162, 189, 0.4);
-}
-
-div.search > button:hover {
-  background-color: rgba(34, 162, 189, 0.6);
-}
-
-div.search > button > img {
-  width: 15px;
-}
-
 div.cards {
   width: 99%;
   display: flex;
