@@ -17,6 +17,7 @@ const Search = (props) => {
       setCharacter([list]);
     } else {
       setCharacter([]);
+      setInput("ID entre 1 e 826");
     }
   };
 
@@ -32,7 +33,7 @@ const Search = (props) => {
           value={input}
           onChange={handleSubmit}
           type={"text"}
-          placeholder="Digite o valor"
+          placeholder="Digite o Id do personagem"
         />
         <button onClick={getCharacter}>
           <img src={search} alt="search" />
