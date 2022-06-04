@@ -17,7 +17,8 @@ const Search = (props) => {
       setCharacter([list]);
     } else {
       setCharacter([]);
-      setInput("ID entre 1 e 826");
+      setInput("");
+      document.getElementById("search").placeholder = "ID entre 1 e 826";
     }
   };
 
