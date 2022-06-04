@@ -5,28 +5,35 @@ import "./style.css";
 
 const Search = (props) => {
   const [character, setCharacter] = useState([]);
+  const [input, setInput] = useState("");
 
   const getCharacter = async () => {
-    const id = document.getElementById("search").value;
-    if (id > 0 && id < 827) {
+    if (input > 0 && input < 827) {
       const res = await fetch(
-        `https://rickandmortyapi.com/api/character/${id}`
+        `https://rickandmortyapi.com/api/character/${input}`
       );
       const list = await res.json();
 
       setCharacter([list]);
     } else {
-      document.getElementById("search").value = "";
-      document.getElementById("search").placeholder =
-        "Nenhum Personagem encontrado";
       setCharacter([]);
     }
+  };
+
+  const handleSubmit = (event) => {
+    setInput(event.target.value);
   };
 
   return (
     <div className="search">
       <div className="form">
-        <input id="search" type="text" placeholder="ID" />
+        <input
+          id="search"
+          value={input}
+          onChange={handleSubmit}
+          type={"text"}
+          placeholder="Digite o valor"
+        />
         <button onClick={getCharacter}>
           <img src={search} alt="search" />
         </button>
