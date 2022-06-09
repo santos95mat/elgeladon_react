@@ -43,7 +43,7 @@ const Home = (props) => {
       </div>
       <h2>Lista de Personagens</h2>
       <div className="cards">
-        <Card filter={filterInput} characters={characters} />;
+        <Card filter={filterInput} characters={characters} />
       </div>
     </div>
   );
