@@ -28,9 +28,7 @@ const Home = (props) => {
       <Search />
       <h2>Lista de Personagens</h2>
       <div className="cards">
-        {characters.map((e) => {
-          return <Card key={e.id} id={e.id} image={e.image} name={e.name} />;
-        })}
+        <Card characters={characters} />;
       </div>
     </div>
   );

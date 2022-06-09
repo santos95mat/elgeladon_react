@@ -40,9 +40,7 @@ const Search = (props) => {
           <img src={search} alt="search" />
         </button>
       </div>
-      {character.map((e) => {
-        return <Card key={e.id} image={e.image} name={e.name} />;
-      })}
+      <Card characters={character} />
     </div>
   );
 };

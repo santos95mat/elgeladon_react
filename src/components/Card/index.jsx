@@ -1,30 +1,42 @@
 import "./style.css";
+import { useState } from "react";
 import star from "../../assets/images/star.png";
 import star1 from "../../assets/images/star1.png";
 
-const Card = (props) => {
-  const getFavorite = (id) => {
-    const favorite = document.getElementById(id);
+const Card = ({ characters }) => {
+  const [showFav, setShowFav] = useState({});
+  const getFavorite = (i) => {
+    const p = {
+      [i]: showFav[i] ? false : true,
+    };
+    setShowFav({ ...showFav, ...p });
+  };
 
-    if (favorite.src === star) {
-      favorite.src = star1;
+  const showFavorite = (i) => {
+    if (!showFav[i]) {
+      return star;
     } else {
-      favorite.src = star;
+      return star1;
     }
   };
 
   return (
-    <div className="card">
-      <h3>{props.name}</h3>
-      <img className="img_p" alt="presonagem" src={props.image} />
-      <img
-        onClick={() => getFavorite("fav" + props.id)}
-        className="img_s"
-        id={"fav" + props.id}
-        alt="star"
-        src={star}
-      />
-    </div>
+    <>
+      {characters.map((props, i) => {
+        return (
+          <div key={i} className="card">
+            <h3>{props.name}</h3>
+            <img className="img_p" alt="presonagem" src={props.image} />
+            <img
+              onClick={() => getFavorite(i)}
+              className="img_s"
+              alt="star"
+              src={showFavorite(i)}
+            />
+          </div>
+        );
+      })}
+    </>
   );
 };
 
