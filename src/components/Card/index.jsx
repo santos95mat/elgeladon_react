@@ -26,16 +26,16 @@ const Card = ({ characters, filter }) => {
         .filter((e) => {
           return e.name.toLowerCase().includes(filter.toLowerCase());
         })
-        .map((props, i) => {
+        .map((props) => {
           return (
-            <div key={i} className="card">
+            <div key={props.id} className="card">
               <h3>{props.name}</h3>
               <img className="img_p" alt="presonagem" src={props.image} />
               <img
-                onClick={() => getFavorite(i)}
+                onClick={() => getFavorite(props.id)}
                 className="img_s"
                 alt="star"
-                src={showFavorite(i)}
+                src={showFavorite(props.id)}
               />
             </div>
           );
