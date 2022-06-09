@@ -1,7 +1,6 @@
 import Card from "../Card";
 import { useState, useEffect } from "react";
 import "./style.css";
-import Search from "../Search";
 
 const Home = (props) => {
   const [characters, setCharacters] = useState([]);
@@ -22,13 +21,29 @@ const Home = (props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [url]);
 
+  const [filterInput, setFilterInput] = useState("");
+
+  const handleSubmit = (event) => {
+    setFilterInput(event.target.value);
+  };
+
   return (
     <div>
       <h2>Pesquisar Personagem por ID</h2>
-      <Search />
+      <div className="search">
+        <div className="form">
+          <input
+            id="search"
+            value={filterInput}
+            onChange={handleSubmit}
+            type={"text"}
+            placeholder="Digite o nome do personagem"
+          />
+        </div>
+      </div>
       <h2>Lista de Personagens</h2>
       <div className="cards">
-        <Card characters={characters} />;
+        <Card filter={filterInput} characters={characters} />;
       </div>
     </div>
   );

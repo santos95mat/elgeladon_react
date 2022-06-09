@@ -3,7 +3,7 @@ import { useState } from "react";
 import star from "../../assets/images/star.png";
 import star1 from "../../assets/images/star1.png";
 
-const Card = ({ characters }) => {
+const Card = ({ characters, filter }) => {
   const [showFav, setShowFav] = useState({});
   const getFavorite = (i) => {
     const p = {
@@ -22,20 +22,24 @@ const Card = ({ characters }) => {
 
   return (
     <>
-      {characters.map((props, i) => {
-        return (
-          <div key={i} className="card">
-            <h3>{props.name}</h3>
-            <img className="img_p" alt="presonagem" src={props.image} />
-            <img
-              onClick={() => getFavorite(i)}
-              className="img_s"
-              alt="star"
-              src={showFavorite(i)}
-            />
-          </div>
-        );
-      })}
+      {characters
+        .filter((e) => {
+          return e.name.toLowerCase().includes(filter.toLowerCase());
+        })
+        .map((props, i) => {
+          return (
+            <div key={i} className="card">
+              <h3>{props.name}</h3>
+              <img className="img_p" alt="presonagem" src={props.image} />
+              <img
+                onClick={() => getFavorite(i)}
+                className="img_s"
+                alt="star"
+                src={showFavorite(i)}
+              />
+            </div>
+          );
+        })}
     </>
   );
 };
