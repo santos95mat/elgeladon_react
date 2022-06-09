@@ -29,7 +29,7 @@ const Home = (props) => {
 
   return (
     <div>
-      <h2>Pesquisar Personagem por ID</h2>
+      <h2>Pesquisar Personagem por nome</h2>
       <div className="search">
         <div className="form">
           <input
