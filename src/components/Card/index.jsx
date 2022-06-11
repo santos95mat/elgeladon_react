@@ -28,10 +28,10 @@ const Card = ({ characters, filter }) => {
               <h3>{props.name}</h3>
               <img className="img_p" alt="presonagem" src={props.image} />
               <img
-                onClick={() => getFavorite(props.id)}
+                onClick={() => getFavorite(props._id)}
                 className="img_s"
                 alt="star"
-                src={showFavorite(props.id)}
+                src={showFavorite(props._id)}
               />
             </div>
           );

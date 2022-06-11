@@ -4,22 +4,29 @@ import "./style.css";
 
 const Home = (props) => {
   const [characters, setCharacters] = useState([]);
-  const [url, setUrl] = useState("https://rickandmortyapi.com/api/character");
+  //const [url, setUrl] = useState("https://rickandmortyapi.com/api/character");
+  const [url, setUrl] = useState("http://localhost:3000/characters/listar-todas");
 
   const getCharacters = async () => {
     const res = await fetch(url);
     const list = await res.json();
 
-    setCharacters([...characters, ...list.results]);
-    setUrl(list.info.next);
+    //setCharacters([...characters, ...list.results]);
+    //setUrl(list.info.next);
+    setCharacters([...characters, ...list]);
   };
 
+//   useEffect(() => {
+//     if (url !== null) {
+//       getCharacters();
+//     }
+//     // eslint-disable-next-line react-hooks/exhaustive-deps
+//   }, [url]);
+  
   useEffect(() => {
-    if (url !== null) {
-      getCharacters();
-    }
+    getCharacters();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [url]);
+  }, []);
 
   const [filterInput, setFilterInput] = useState("");
 
