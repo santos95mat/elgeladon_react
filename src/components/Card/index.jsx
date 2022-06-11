@@ -4,6 +4,8 @@ import star from "../../assets/images/star.png";
 import star1 from "../../assets/images/star1.png";
 
 const Card = ({ characters, filter }) => {
+  const json = JSON.stringify(characters);
+  localStorage.setItem("character", json);
   const [showFav, setShowFav] = useState({});
   const getFavorite = (i) => {
     const p = {
@@ -12,13 +14,7 @@ const Card = ({ characters, filter }) => {
     setShowFav({ ...showFav, ...p });
   };
 
-  const showFavorite = (i) => {
-    if (!showFav[i]) {
-      return star;
-    } else {
-      return star1;
-    }
-  };
+  const showFavorite = (i) => (!showFav[i] ? star : star1);
 
   return (
     <>
