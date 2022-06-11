@@ -19,7 +19,7 @@ const Card = ({ characters, filter }) => {
 
   return (
     <>
-      {characters.lengh === 0 ? (
+      {characters.lengh < 826 ? (
         <ReactLoading
           type="spinningBubbles"
           color="lightBlue"
