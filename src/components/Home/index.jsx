@@ -11,9 +11,7 @@ const Home = (props) => {
     );
     const list = await res.json();
 
-    setTimeout(() => {
-      setCharacters([...characters, ...list]);
-    }, 3000);
+    setCharacters([...characters, ...list]);
   };
 
   useEffect(() => {
