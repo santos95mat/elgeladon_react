@@ -1,6 +1,7 @@
 import Card from "../Card";
 import { useState, useEffect } from "react";
 import "./style.css";
+import ReactLoading from "react-loading";
 
 const Home = (props) => {
   const [characters, setCharacters] = useState([]);
@@ -40,9 +41,19 @@ const Home = (props) => {
         </div>
       </div>
       <h2>Lista de Personagens</h2>
-      <div className="cards">
-        <Card filter={filterInput} characters={characters} />
-      </div>
+      {characters.length === 0 ? (
+        <div className="loading">
+          <ReactLoading
+            className="load"
+            type="spinningBubbles"
+            color="lightblue"
+          />
+        </div>
+      ) : (
+        <div className="cards">
+          <Card filter={filterInput} characters={characters} />
+        </div>
+      )}
     </div>
   );
 };
