@@ -2,6 +2,7 @@ import "./style.css";
 import { useState } from "react";
 import star from "../../assets/images/star.png";
 import star1 from "../../assets/images/star1.png";
+import React from "react";
 import ReactLoading from "react-loading";
 
 const Card = ({ characters, filter }) => {
