@@ -1,38 +1,47 @@
 import "./style.css";
-import { useState } from "react";
-import star from "../../assets/images/star.png";
-import star1 from "../../assets/images/star1.png";
+import edit from "../../assets/icons/edit.png"
+import bin from "../../assets/icons/bin.png"
 
-const Card = ({ characters, filter }) => {
+const Card = ({ getCharacters, characters, filter }) => {
   const json = JSON.stringify(characters);
   localStorage.setItem("character", json);
-  const [showFav, setShowFav] = useState({});
-  const getFavorite = (i) => {
-    const p = {
-      [i]: showFav[i] ? false : true,
-    };
-    setShowFav({ ...showFav, ...p });
-  };
 
-  const showFavorite = (i) => (!showFav[i] ? star : star1);
+  const delPaleta = async (id) => {
+    const response = await fetch(
+      `https://api-elgeladon-mongo.herokuapp.com/paletas/excluir-paleta/${id}`,
+      {
+        method: "DELETE",
+        mode: "cors",
+      }
+    );
+
+    getCharacters();
+  }
 
   return (
     <>
       {characters
         .filter((e) => {
-          return e.name.toLowerCase().includes(filter.toLowerCase());
+          return e.sabor.toLowerCase().includes(filter.toLowerCase());
         })
         .map((props) => {
           return (
-            <div key={props.id} className="card">
-              <h3>{props.name}</h3>
-              <img className="img_p" alt="presonagem" src={props.image} />
-              <img
-                onClick={() => getFavorite(props._id)}
-                className="img_s"
-                alt="star"
-                src={showFavorite(props._id)}
-              />
+            <div key={props._id} className="card">
+              <img className="img_p" alt="presonagem" src={props.foto} />
+              <div className="cardS">
+                <h3>{props.sabor}</h3>
+                <h3>R$ {props.preco},00</h3>
+                <div className="button">
+                  <button className="btnEdit btn" onClick={"##"}>
+                    <img src={edit} alt="alt"/>
+                  </button>
+                  <button className="btnDel btn" onClick={() => {
+                    delPaleta(props._id)
+                  }}>
+                  <img src={bin} alt="alt"/>
+                  </button>
+                </div>
+              </div>
             </div>
           );
         })}

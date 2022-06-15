@@ -5,11 +5,11 @@ import Home from "./components/Home";
 
 const App = () => {
   return (
-    <>
+    <div className="Home">
       <Header />
       <Home />
       <Footer />
-    </>
+    </div>
   );
 };
 

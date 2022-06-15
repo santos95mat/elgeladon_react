@@ -8,11 +8,11 @@ const Home = (props) => {
 
   const getCharacters = async () => {
     const res = await fetch(
-      "https://api-elgeladon-mongo.herokuapp.com/characters/listar-todas"
+      "https://api-elgeladon-mongo.herokuapp.com/paletas/listar-todas"
     );
     const list = await res.json();
 
-    setCharacters([...characters, ...list]);
+    setCharacters(list);
   };
 
   useEffect(() => {
@@ -27,8 +27,8 @@ const Home = (props) => {
   };
 
   return (
-    <div>
-      <h2>Pesquisar Personagem por nome</h2>
+    <div className="main">
+      <h2>Pesquisar Paleta por sabor</h2>
       <div className="search">
         <div className="form">
           <input
@@ -36,11 +36,11 @@ const Home = (props) => {
             value={filterInput}
             onChange={handleSubmit}
             type={"text"}
-            placeholder="Digite o nome do personagem"
+            placeholder="Digite o sabor da paleta"
           />
         </div>
       </div>
-      <h2>Lista de Personagens</h2>
+      <h2>Paletas disponíveis</h2>
       {characters.length === 0 ? (
         <div className="loading">
           <ReactLoading
@@ -51,7 +51,7 @@ const Home = (props) => {
         </div>
       ) : (
         <div className="cards">
-          <Card filter={filterInput} characters={characters} />
+          <Card getCharacters={getCharacters} filter={filterInput} characters={characters} />
         </div>
       )}
     </div>
