@@ -30,7 +30,7 @@ const Card = ({ getCharacters, characters, filter }) => {
               <img className="img_p" alt="presonagem" src={props.foto} />
               <div className="cardS">
                 <h3>{props.sabor}</h3>
-                <h3>R$ {props.preco},00</h3>
+                <h3>R$ {props.preco.toFixed(2)}</h3>
                 <div className="button">
                   <button className="btnEdit btn" onClick={"##"}>
                     <img src={edit} alt="alt"/>
